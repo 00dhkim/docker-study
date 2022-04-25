@@ -1,0 +1,14 @@
+networks:
+  test_net:
+
+services:
+  python:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: '${APP_NAME}-py'
+    working_dir: /tmp
+    volumes:
+      - ./file:/tmp/file
+    networks:
+      - test_net
